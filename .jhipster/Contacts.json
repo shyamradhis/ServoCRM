@@ -1,0 +1,37 @@
+{
+  "annotations": {
+    "changelogDate": "20240807062712"
+  },
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "first_name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "last_name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "account_name",
+      "fieldType": "String",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "Contacts",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

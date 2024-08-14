@@ -1,0 +1,50 @@
+{
+  "annotations": {
+    "changelogDate": "20240807063529"
+  },
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "task_owner",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subject",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "due_date",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "account",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "priority",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "reminder",
+      "fieldType": "Duration"
+    },
+    {
+      "fieldName": "repeat",
+      "fieldType": "Duration"
+    }
+  ],
+  "name": "Task",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -3,10 +3,34 @@ import { ValidatedField, ValidatedForm, isEmail } from 'react-jhipster';
 import { Row, Col, Alert, Button } from 'reactstrap';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-
 import PasswordStrengthBar from 'app/shared/layout/password/password-strength-bar';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { handleRegister, reset } from './register.reducer';
+import './register.scss'; // Import the SCSS file for styling
+
+// Simple Slideshow Component
+const Slideshow = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = [
+    'https://img.freepik.com/free-vector/hand-drawn-flat-design-crm-illustration_23-2149383345.jpg?t=st=1722402494~exp=1722406094~hmac=9cda69c15c910a3f42125d0663baff69a3b4ea3012f72cf1b17116ac9c9a49cb&w=996',
+    'https://img.freepik.com/free-vector/visual-data-concept-illustration_114360-1713.jpg?w=740&t=st=1722199590~exp=1722200190~hmac=0b6a619334c6a6ebfb2c4201c5fcf1a8ad7c02fd4015400e63b277898d199612',
+    'https://img.freepik.com/free-vector/hand-drawn-flat-design-crm-illustration_23-2149367253.jpg?w=740&t=st=1722199608~exp=1722200208~hmac=66fb130dc144e9d28ccce4536a2869e207d2005898b57ddf225138b30a8d87ac',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+    }, 1000); // Change slide every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="slideshow">
+      <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} />
+    </div>
+  );
+};
 
 export const RegisterPage = () => {
   const [password, setPassword] = useState('');
@@ -34,16 +58,12 @@ export const RegisterPage = () => {
   }, [successMessage]);
 
   return (
-    <div>
-      <Row className="justify-content-center">
-        <Col md="8">
+    <div className="register-page">
+      <Row className="justify-content-between">
+        <Col md="6" className="form-col">
           <h1 id="register-title" data-cy="registerTitle">
             Registration
           </h1>
-        </Col>
-      </Row>
-      <Row className="justify-content-center">
-        <Col md="8">
           <ValidatedForm id="register-form" onSubmit={handleValidSubmit}>
             <ValidatedField
               name="username"
@@ -105,17 +125,9 @@ export const RegisterPage = () => {
             </Button>
           </ValidatedForm>
           <p>&nbsp;</p>
-          <Alert color="warning">
-            <span>If you want to </span>
-            <Link to="/login" className="alert-link">
-              sign in
-            </Link>
-            <span>
-              , you can try the default accounts:
-              <br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;) <br />- User (login=&quot;user&quot; and
-              password=&quot;user&quot;).
-            </span>
-          </Alert>
+        </Col>
+        <Col md="6" className="slideshow-col">
+          <Slideshow />
         </Col>
       </Row>
     </div>

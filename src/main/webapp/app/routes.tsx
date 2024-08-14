@@ -26,6 +26,10 @@ const Admin = Loadable({
   loader: () => import(/* webpackChunkName: "administration" */ 'app/modules/administration'),
   loading: () => loading,
 });
+const Dashboard = Loadable({
+  loader: () => import(/* webpackChunkName: "home" */ 'app/modules/home/Dashboard'),
+  loading: () => loading,
+});
 const AppRoutes = () => {
   return (
     <div className="view-routes">
@@ -61,6 +65,15 @@ const AppRoutes = () => {
           path="*"
           element={
             <PrivateRoute hasAnyAuthorities={[AUTHORITIES.USER]}>
+              <EntitiesRoutes />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="dashboard/*"
+          element={
+            <PrivateRoute hasAnyAuthorities={[AUTHORITIES.USER]}>
+              <Dashboard />
               <EntitiesRoutes />
             </PrivateRoute>
           }

@@ -1,0 +1,32 @@
+.register-page {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  .form-col {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(246, 243, 243);
+  }
+
+  .slideshow-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    .slideshow {
+      margin-left: 160px;
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 150%;
+        height: 100%;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgb(252, 251, 251);
+      }
+    }
+  }
+}
